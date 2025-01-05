@@ -1,0 +1,13 @@
+@use '../base' as *;
+@use '../mixins' as *;
+
+.header {
+    @include container;
+    box-shadow: $shadow-header;
+    display: flex;
+    justify-content: space-between;
+
+    & > * {
+        margin: auto 0;
+    }
+}

@@ -1,0 +1,9 @@
+@use '../base/' as *;
+
+.app-layout {
+    min-height: 100svh;
+
+    &__header {
+        background-color: $white-color;
+    }
+}

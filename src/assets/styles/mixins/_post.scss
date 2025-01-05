@@ -1,0 +1,6 @@
+@mixin post($padding: 16px, $margin-bottom: 24px, $bg-color: #fff) {
+    background-color: $bg-color;
+    border-radius: 8px;
+    padding: $padding;
+    margin-bottom: $margin-bottom;
+}

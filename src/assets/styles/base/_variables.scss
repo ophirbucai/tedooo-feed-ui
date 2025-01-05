@@ -1,0 +1,36 @@
+/* Typography */
+$font-primary: 'DM Sans', sans-serif;
+$font-secondary: 'Poppins', sans-serif;
+
+/* Design Colors */
+$primary-color-100: #96DCD0;
+$primary-color-300: #6CCEBD;
+$primary-color-500: #2DB8A1;
+$primary-color-700: #28A38F;
+$primary-color-900: #208171;
+
+$secondary-color-500: #949796;
+$secondary-color-700: #484E4C;
+$secondary-color-900: #282F2D;
+
+$blue-color-500: #0A66C2;
+$black-color: #000;
+$white-color: #FFF;
+
+$body-bg: #f6F7F7;
+
+/* Shadows */
+$shadow-card: 0px 1px 7px 0px #282F2D12;
+$shadow-header: 0px 7px 7px 0px #6D6D6D0A;
+
+/* Spacing */
+$spacing-unit: 8px;
+
+/* Media Queries */
+$breakpoints: (
+    // 'sm': 576px,
+    // 'md': 768px,
+    // 'lg': 1024px,
+    'lg': 1120px,
+    // 'xl': 1280px,
+);

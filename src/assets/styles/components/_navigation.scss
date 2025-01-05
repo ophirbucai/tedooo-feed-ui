@@ -1,0 +1,13 @@
+@use '../base' as *;
+@use '../mixins' as *;
+
+.navigation {
+    margin-left: auto;
+    height: 100%;
+    font-family: $font-secondary;
+
+    a {
+        @include nav-link;
+        margin-right: 8px;
+    }
+}

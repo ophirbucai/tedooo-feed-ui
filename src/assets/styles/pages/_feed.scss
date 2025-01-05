@@ -1,0 +1,15 @@
+@use '../base' as *;
+@use '../mixins' as *;
+
+.feed {
+    @include page;
+
+    .post {
+        @include post;
+        box-shadow: $shadow-card;
+
+        &__header {
+            display: grid;
+        }
+    }
+}

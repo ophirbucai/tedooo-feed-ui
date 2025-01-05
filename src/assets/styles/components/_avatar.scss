@@ -1,0 +1,9 @@
+.avatar {
+    display: inline-flex;
+    aspect-ratio: 1;
+    overflow: hidden;    
+    object-fit: cover;
+    max-width: var(--avatar-size);
+    max-height: var(--avatar-size);
+    border-radius: var(--avatar-size);
+}

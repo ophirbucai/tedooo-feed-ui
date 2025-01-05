@@ -1,0 +1,15 @@
+@use '../base' as *;
+@use '../mixins' as *;
+
+.tedooo-logo {
+    @include brand-gradient;
+    height: 40px;
+    width: 40px;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 4px;
+
+    img {
+        translate: -1px;
+    }
+}

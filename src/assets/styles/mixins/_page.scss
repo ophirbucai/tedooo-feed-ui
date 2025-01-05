@@ -1,0 +1,7 @@
+@use '../base' as *;
+@use './container' as *;
+
+@mixin page {
+    @include container;
+    padding-top: $spacing-unit * 3;
+}
