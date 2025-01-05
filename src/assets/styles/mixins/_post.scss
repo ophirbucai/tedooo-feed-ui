@@ -1,6 +1,75 @@
-@mixin post($padding: 16px, $margin-bottom: 24px, $bg-color: #fff) {
+@use '../base' as *;
+
+@mixin post($padding: 24px, $margin-bottom: 24px, $bg-color: #fff) {
     background-color: $bg-color;
-    border-radius: 8px;
-    padding: $padding;
+    border-radius: 4px;
     margin-bottom: $margin-bottom;
+    font-size: 0.875rem;
+
+    &__header,
+    &__actions {
+        padding-inline: $padding;
+    }
+
+    &__content {
+        padding: 16px $padding;
+    }
+
+    &__header {
+        padding-top: $padding;
+        display: grid;
+        align-content: center;
+        grid-template: repeat(2, auto) / repeat(2, auto);
+        justify-content: start;
+        gap: 0 12px;
+        font-weight: 500;
+
+        &_bottom {
+            grid-row: 2;
+            grid-column: 2;
+            display: flex;
+            gap: 0.25em;
+            align-items: center;
+
+            &_username {
+                color: $blue-color-600;
+            }
+
+            &_date {
+                color: $secondary-color-500;
+                font-weight: 400;
+                font-size: 0.75rem;
+                font-family: $font-secondary;
+            }
+        }
+
+        &_name {
+            grid-row: 1;
+            grid-column: 2;
+        }
+
+        &_avatar {
+            grid-row: 1 / -1;
+            grid-column: 1;
+        }
+    }
+
+    &__images {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+            margin: auto;
+            height: 100%;
+            min-height: 100%;
+        }
+
+        @media screen and (max-width: map-get($breakpoints, 'md')) {
+            grid-template-rows: repeat(auto-fit, 33.3334vh);
+            max-height: 66.66667vh;
+            width: 100%;
+        }
+    }
 }

@@ -1,4 +1,27 @@
 import { Avatar } from "../components/avatar";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import updateLocale from "dayjs/plugin/updateLocale";
+
+dayjs.extend(relativeTime);
+dayjs.extend(updateLocale);
+dayjs.updateLocale("en", {
+	relativeTime: {
+		future: "%s",
+		past: "%s",
+		s: "1s",
+		m: "1m",
+		mm: "%dm",
+		h: "1h",
+		hh: "%dh",
+		d: "ad",
+		dd: "%dd",
+		M: "1m",
+		MM: "%dm",
+		y: "1y",
+		yy: "%dy",
+	},
+});
 
 export function FeedPage() {
 	const data = {
@@ -125,9 +148,30 @@ export function FeedPage() {
 			{data.data.map((post) => (
 				<article className="post" key={post.id}>
 					<header className="post__header">
-						<Avatar src={post.avatar} size={40} />
-						<span>{post.shopName}</span>
+						<span className="post__header_avatar">
+							<Avatar src={post.avatar} size={40} />
+						</span>
+						<span className="post__header_name">
+							<span>{post.shopName}</span>
+						</span>
+						<span className="post__header_bottom">
+							<span className="post__header_bottom_username">
+								{post.username}
+							</span>
+							<span className="post__header_bottom_date">&middot; {dayjs(post.date).fromNow(true)}</span>
+						</span>
 					</header>
+					<div className="post__content">
+						<p>{post.text}</p>
+					</div>
+					<div className="post__images">
+						{post.images.slice(0, 2).map((src) => (
+							<img key={src} src={src} alt={`Posted by @${post.username}`} />
+						))}
+					</div>
+					<div className="post__actions">
+						<button type="button">{post.likes} Likes</button>
+					</div>
 				</article>
 			))}
 		</div>

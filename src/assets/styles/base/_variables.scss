@@ -16,6 +16,7 @@ $secondary-color-700: #484E4C;
 $secondary-color-900: #282F2D;
 
 $blue-color-500: #0A66C2;
+$blue-color-600: #0865c2;
 $black-color: #000;
 $white-color: #FFF;
 
@@ -31,8 +32,8 @@ $spacing-unit: 8px;
 /* Media Queries */
 $breakpoints: (
     // 'sm': 576px,
-    // 'md': 768px,
     // 'lg': 1024px,
+    'md': 768px,
     'lg': 1120px,
     // 'xl': 1280px,
 );

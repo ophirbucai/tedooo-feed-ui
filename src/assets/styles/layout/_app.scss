@@ -5,5 +5,12 @@
 
     &__header {
         background-color: $white-color;
+        position: fixed;
+        inset: 0 0 auto;
+        box-shadow: $shadow-header;
+    }
+
+    &__content {
+        padding-top: 58px;
     }
 }

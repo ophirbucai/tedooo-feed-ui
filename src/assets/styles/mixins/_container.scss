@@ -1,6 +1,6 @@
 @use '../base' as *;
 
-@mixin container($gutter: $spacing-unit) {
+@mixin container($gutter: $spacing-unit * 1.5) {
     max-width: map-get($breakpoints, 'lg');
     margin: 0 auto;
     padding-inline: $gutter;

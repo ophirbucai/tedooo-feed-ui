@@ -7,6 +7,7 @@ type AvatarProps = React.ComponentProps<"img"> & {
 export function Avatar({ className, size, ...props }: AvatarProps) {
 	return (
 		<img
+			draggable={false}
 			{...props}
 			alt={props.alt}
 			className={cn("avatar", className)}

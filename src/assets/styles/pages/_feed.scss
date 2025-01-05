@@ -7,9 +7,5 @@
     .post {
         @include post;
         box-shadow: $shadow-card;
-
-        &__header {
-            display: grid;
-        }
     }
 }
