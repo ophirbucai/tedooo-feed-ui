@@ -26,7 +26,7 @@ export function Navigation() {
 		<nav className="navigation">
 			<ul>
 				{NAVIGATION_LINKS.map(({ href, content, Icon }) => (
-					<NavLink to={href} key={href}>
+					<NavLink to={href} key={href} className="nav-link">
 						<Suspense>
 							<Icon />
 						</Suspense>{" "}

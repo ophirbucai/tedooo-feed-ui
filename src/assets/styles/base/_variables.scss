@@ -9,7 +9,9 @@ $primary-color-500: #2DB8A1;
 $primary-color-700: #28A38F;
 $primary-color-900: #208171;
 
+$secondary-color-100: #F4F5F5;
 $secondary-color-500: #949796;
+$secondary-color-550: color-adjust($secondary-color-500, -5%);
 $secondary-color-700: #484E4C;
 $secondary-color-900: #282F2D;
 

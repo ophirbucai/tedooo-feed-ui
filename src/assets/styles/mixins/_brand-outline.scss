@@ -1,0 +1,5 @@
+@use '../base' as *;
+
+@mixin brand-outline {
+    box-shadow: 0 0 0 2px fade-out($primary-color-300, 0.25);
+}

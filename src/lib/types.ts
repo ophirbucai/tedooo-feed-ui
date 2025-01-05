@@ -18,8 +18,7 @@ export type Post = {
 	premium: boolean;
 };
 
-
 export type InfiniteResponse<T> = {
-    hasMore: boolean;
-    data: T[];
-}
+	hasMore: boolean;
+	data: T[];
+};

@@ -1,0 +1,39 @@
+@use '../base' as *;
+@use '../mixins' as *;
+
+.search-bar {
+    flex-grow: 1;
+    max-width: 250px;
+
+    label {
+        display: flex;
+        gap: 4px;
+        font-size: 0.875rem;
+        padding: 11px 14px;
+        min-height: 40px;
+        background-color: $secondary-color-100;
+        border-radius: 2em;
+        color: $secondary-color-500;
+        transition: color 150ms ease-in-out;
+
+        &:hover,
+        &:has(#search:not(:placeholder-shown)),
+        &:has(#search:focus),
+        &:has(#search:-webkit-autofill) {
+            color: $secondary-color-550;
+        }
+
+        &:has(#search:focus-visible) {
+            @include brand-outline;
+        }
+
+        #search {
+            all: unset;
+
+            &::placeholder {
+                color: inherit;
+                opacity: 1;
+            }
+        }
+    }
+}

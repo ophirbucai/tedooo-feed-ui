@@ -3,11 +3,15 @@
 
 .navigation {
     margin-left: auto;
-    height: 100%;
     font-family: $font-secondary;
 
-    a {
+    .nav-link {
         @include nav-link;
-        margin-right: 8px;
+    }
+
+    @media screen and (max-width: #{map-get($breakpoints, lg)}) {
+        .nav-link {
+            display: none
+        }
     }
 }

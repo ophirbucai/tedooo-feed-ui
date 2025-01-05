@@ -1,4 +1,5 @@
-@use '../base/' as *;
+@use './brand-outline' as *;
+@use '../base' as *;
 
 @mixin nav-link($active-color: $primary-color-500,
     $text-color: $secondary-color-500) {
@@ -6,10 +7,14 @@
     display: inline-flex;
     gap: $spacing-unit;
     align-content: center;
-    padding: 16px 10px 16px 0;
+    padding: 18px 10px 16px 2px;
     color: $text-color;
     position: relative;
     transition: color 100ms ease-in-out;
+
+    &:not(:last-child) {
+        margin-inline-end: 8px;
+    }
 
     &:after {
         content: '';
@@ -21,6 +26,16 @@
         height: 2px;
         transition: width 100ms ease-in-out;
         background-color: $active-color;
+    }
+
+    &:hover {
+        color: $secondary-color-550;
+    }
+
+    &:focus-visible {
+        outline: none;
+        border-radius: 4px;
+        @include brand-outline;
     }
 
     &.active {

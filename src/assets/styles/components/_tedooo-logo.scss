@@ -5,6 +5,7 @@
     @include brand-gradient;
     height: 40px;
     width: 40px;
+    min-width: 40px;
     display: inline-grid;
     place-items: center;
     border-radius: 4px;
