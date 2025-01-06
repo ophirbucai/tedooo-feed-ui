@@ -11,7 +11,7 @@ import { useState } from "react";
 type Props = {
 	post: PostType | null;
 	toggleLike?: () => Promise<void>;
-	onVisible?: (observer: IntersectionObserverEntry) => void;
+	onVisible?: () => void;
 };
 
 export function Post({ post, toggleLike, onVisible }: Props) {
