@@ -6,7 +6,9 @@ import CommentIcon from "../assets/icons/actions/comment-outline.svg?react";
 import dayjs from "dayjs";
 import { cn } from "../lib/cn";
 
-export function Post({ post }: { post: PostType | null }) {
+type Props = { post: PostType | null; toggleLike?: () => Promise<void> };
+
+export function Post({ post, toggleLike }: Props) {
 	if (post) {
 		const hasInteractions = [post.likes, post.comments].filter(Boolean);
 		return (
@@ -55,7 +57,11 @@ export function Post({ post }: { post: PostType | null }) {
 					</div>
 				)}
 				<div className="post__actions">
-					<button type="button" className={cn(post.didLike && "active")}>
+					<button
+						type="button"
+						className={cn(post.didLike && "active")}
+						onClick={toggleLike}
+					>
 						<LikeIcon />
 						Like
 					</button>

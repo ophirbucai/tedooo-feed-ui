@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import type { /* InfiniteResponse,*/Post } from "../lib/types";
+import type { /* InfiniteResponse,*/ Post } from "../lib/types";
 
 // const FEED_ENDPOINT_URL = `${import.meta.env.VITE_BACKEND_URL}`;
 
@@ -65,7 +65,34 @@ const useInfiniteFeed = () => {
 		}
 	}
 
-	return { posts, hasMore, loading, fetchMore: fetchPosts, handleRangeChange };
+	const toggleLike = useCallback(async (index: number) => {
+		let originalPost: Post;
+		setPosts((prev) => {
+			const posts = [...prev];
+			originalPost = posts[index];
+			posts[index] = { ...originalPost, didLike: !originalPost.didLike };
+			return posts;
+		});
+		try {
+			// Post like/disliked post to the backend.
+		} catch {
+			// biome-ignore lint/correctness/noUnreachable: This code is indeed unreachable, remove this comment after implementing call to backend.
+			setPosts((prev) => {
+				const posts = [...prev];
+				posts[index] = originalPost;
+				return posts;
+			});
+		}
+	}, []);
+
+	return {
+		posts,
+		hasMore,
+		loading,
+		fetchMore: fetchPosts,
+		handleRangeChange,
+		toggleLike,
+	};
 };
 
 export default useInfiniteFeed;
