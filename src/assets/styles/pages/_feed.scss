@@ -5,6 +5,11 @@
     @include container;
     height: calc(100vh - 58px);
 
+
+    @media screen and (max-width: map-get($breakpoints, lg)) {
+        @include container(0);
+    }
+
     .post {
         @include post;
         box-shadow: $shadow-card;
