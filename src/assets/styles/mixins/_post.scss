@@ -90,4 +90,36 @@
             cursor: pointer;
         }
     }
+
+    &__actions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 40px;
+        padding: 4px;
+        border-top: 1px solid $secondary-color-50;
+        margin: 0 24px;
+
+        > button {
+            all: unset;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: $secondary-color-700;
+            cursor: pointer;
+            gap: $spacing-unit;
+
+            svg {
+                color: $secondary-color-600;
+            }
+
+            &.active {
+                color: $blue-color-500;
+
+                svg {
+                    color: inherit;
+                }
+            }
+        }
+    }
 }

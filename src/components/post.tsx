@@ -1,7 +1,10 @@
 import type { Post as PostType } from "../lib/types";
 import { Avatar } from "../components/avatar";
 import { LikeButton } from "../components/like-button";
+import LikeIcon from "../assets/icons/actions/like-outline.svg?react";
+import CommentIcon from "../assets/icons/actions/comment-outline.svg?react";
 import dayjs from "dayjs";
+import { cn } from "../lib/cn";
 
 export function Post({ post }: { post: PostType | null }) {
 	if (post) {
@@ -51,6 +54,16 @@ export function Post({ post }: { post: PostType | null }) {
 						</div>
 					</div>
 				)}
+				<div className="post__actions">
+					<button type="button" className={cn(post.didLike && "active")}>
+						<LikeIcon />
+						Like
+					</button>
+					<button type="button">
+						<CommentIcon />
+						Comment
+					</button>
+				</div>
 			</article>
 		);
 	}
