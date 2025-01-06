@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 export function useOnVisible(
-	callback?: (...args: never[]) => void | Promise<void>,
+	callback?: (observer: IntersectionObserverEntry) => void | Promise<void>,
 	options: IntersectionObserverInit = {},
 ) {
 	const ref = useRef<HTMLElement>(null);
@@ -11,7 +11,7 @@ export function useOnVisible(
 		const observer = new IntersectionObserver(([entry]) => {
 			const inView = entry.isIntersecting;
 			if (inView && callback) {
-				callback();
+				callback(entry);
 			}
 		}, options);
 
