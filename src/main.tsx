@@ -7,6 +7,9 @@ import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/500.css";
 import "@fontsource/poppins/700.css";
 import "./assets/styles/main.scss";
+import { initPluginsDayJS } from "./lib/dayjs";
+
+initPluginsDayJS();
 
 import App from "./App.tsx";
 
