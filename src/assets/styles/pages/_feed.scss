@@ -4,6 +4,7 @@
 .feed {
     @include container;
     height: calc(100vh - 58px);
+    padding-top: 24px;
 
     .post {
         @include post;
@@ -32,7 +33,7 @@
         }
     }
 
-    .post-spacer-y {
+    .feed-spacer-y {
         padding-top: 24px;
     }
 }
