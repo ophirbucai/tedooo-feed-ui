@@ -3,7 +3,7 @@ import useInfiniteFeed from "../hooks/useInfiniteFeed";
 import { Virtuoso } from "react-virtuoso";
 
 export function FeedPage() {
-	const { posts, loading, fetchMore } = useInfiniteFeed();
+	const { posts, loading, fetchMore, handleRangeChange } = useInfiniteFeed();
 
 	return (
 		<div className="feed">
@@ -11,6 +11,7 @@ export function FeedPage() {
 				data={posts}
 				endReached={fetchMore}
 				itemContent={(_index, post) => <Post post={post} />}
+				rangeChanged={handleRangeChange}
 				components={{
 					Footer: () => (
 						<>

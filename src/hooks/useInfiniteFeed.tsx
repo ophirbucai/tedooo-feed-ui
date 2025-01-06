@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import type { InfiniteResponse, Post } from "../lib/types";
 
-const FEED_ENDPOINT_URL = `${import.meta.env.VITE_BACKEND_URL}/hw/feed.json`;
+const FEED_ENDPOINT_URL = `${import.meta.env.VITE_BACKEND_URL}`;
 
 const useInfiniteFeed = () => {
 	const firstRender = useRef(true);
@@ -9,6 +9,7 @@ const useInfiniteFeed = () => {
 	const [hasMore, setHasMore] = useState(true);
 	const [loading, setLoading] = useState(false);
 	const [skip, setSkip] = useState(0);
+	const impressionSet = useRef(new Set());
 
 	const fetchPosts = useCallback(async () => {
 		if (!hasMore || loading) return;
@@ -17,7 +18,7 @@ const useInfiniteFeed = () => {
 		firstRender.current = false;
 
 		try {
-			// const response = await fetch(`${FEED_ENDPOINT_URL}?skip=${skip}`);
+			// const response = await fetch(`${FEED_ENDPOINT_URL}/hw/feed.json?skip=${skip}`);
 			// const res: InfiniteResponse<Post> = await response.json();
 			const res: typeof data = await new Promise((res) =>
 				setTimeout(() => {
@@ -44,7 +45,27 @@ const useInfiniteFeed = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	return { posts, hasMore, loading, fetchMore: fetchPosts };
+	async function handleRangeChange({
+		startIndex,
+		endIndex,
+	}: { startIndex: number; endIndex: number }) {
+		const range = Array.from(
+			{ length: endIndex - startIndex },
+			(_, i) => startIndex + i,
+		);
+		for (const index of range) {
+			const post = posts[index];
+			if (impressionSet.current.has(post.id)) continue;
+			try {
+				impressionSet.current.add(post.id);
+				// await fetch(`${FEED_ENDPOINT_URL}?itemId=${post.id}`);
+			} catch {
+				impressionSet.current.delete(post.id);
+			}
+		}
+	}
+
+	return { posts, hasMore, loading, fetchMore: fetchPosts, handleRangeChange };
 };
 
 export default useInfiniteFeed;
