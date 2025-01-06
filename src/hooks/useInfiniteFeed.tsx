@@ -70,7 +70,13 @@ const useInfiniteFeed = () => {
 		setPosts((prev) => {
 			const posts = [...prev];
 			originalPost = posts[index];
-			posts[index] = { ...originalPost, didLike: !originalPost.didLike };
+			const { likes, didLike } = originalPost;
+
+			posts[index] = {
+				...originalPost,
+				didLike: !didLike,
+				likes: didLike ? likes - 1 : likes + 1,
+			};
 			return posts;
 		});
 		try {
