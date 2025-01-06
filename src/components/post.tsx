@@ -31,7 +31,7 @@ export function Post({ post }: { post: PostType | null }) {
 					<p>{post.text}</p>
 				</div>
 				<div className="post__images">
-					{post.images.slice(0, 2).map((src) => (
+					{post.images.map((src) => (
 						<img key={src} src={src} alt={`Posted by @${post.username}`} />
 					))}
 				</div>
