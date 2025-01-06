@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import type { InfiniteResponse, Post } from "../lib/types";
-import { BACKEND_ENDPOINTS } from "../lib/endpoints";
+import type { Post } from "../lib/types";
+import { getPosts, sendImpression } from "../lib/queries";
 
 const useInfiniteFeed = () => {
 	const firstRender = useRef(true);
@@ -17,11 +17,10 @@ const useInfiniteFeed = () => {
 		firstRender.current = false;
 
 		try {
-			const response = await fetch(`${BACKEND_ENDPOINTS.FEED}?skip=${skip}`);
-			const res: InfiniteResponse<Post> = await response.json();
-			setPosts((prevPosts) => [...prevPosts, ...res.data]);
-			setHasMore(res.hasMore);
-			setSkip((prevSkip) => prevSkip + res.data.length);
+			const { data, hasMore } = await getPosts(skip);
+			setPosts((prevPosts) => [...prevPosts, ...data]);
+			setHasMore(hasMore);
+			setSkip((prevSkip) => prevSkip + data.length);
 		} catch (error) {
 			console.error("Failed to fetch posts:", error);
 		} finally {
@@ -41,7 +40,7 @@ const useInfiniteFeed = () => {
 			if (impressionSet.current.has(post.id)) return;
 			impressionSet.current.add(post.id);
 			try {
-				await fetch(`${BACKEND_ENDPOINTS.IMPRESSION}?itemId=${post.id}`);
+				await sendImpression(post.id);
 			} catch {
 				impressionSet.current.delete(post.id);
 			}
