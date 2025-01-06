@@ -19,12 +19,7 @@ export function FeedPage() {
 					/>
 				)}
 				components={{
-					Footer: () => (
-						<>
-							{loading && <Post post={null} />}
-							<div className="feed-spacer-y" />
-						</>
-					),
+					Footer: () => loading && <Post post={null} /> ,
 					EmptyPlaceholder: () => loading && <Post post={null} />,
 				}}
 				useWindowScroll
