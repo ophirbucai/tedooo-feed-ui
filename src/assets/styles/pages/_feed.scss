@@ -4,11 +4,11 @@
 .feed {
     @include container;
     height: calc(100vh - 58px);
-    padding-top: 24px;
 
     .post {
         @include post;
         box-shadow: $shadow-card;
+        margin-top: 24px;
     }
 
     .post.skeleton {
@@ -33,7 +33,7 @@
         }
     }
 
-    .feed-spacer-y {
+    .load-more-trigger {
         padding-top: 24px;
     }
 }

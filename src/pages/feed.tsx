@@ -20,7 +20,7 @@ export function FeedPage() {
 				))}
 				{loading && <Post post={null} />}
 				<div
-					className="feed-spacer-y"
+					className="load-more-trigger"
 					ref={loadMoreRef as React.LegacyRef<HTMLDivElement>}
 				/>
 			</div>
