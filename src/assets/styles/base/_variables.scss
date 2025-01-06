@@ -3,28 +3,30 @@ $font-primary: 'DM Sans', sans-serif;
 $font-secondary: 'Poppins', sans-serif;
 
 /* Design Colors */
-$primary-color-100: #96DCD0;
-$primary-color-300: #6CCEBD;
-$primary-color-500: #2DB8A1;
-$primary-color-700: #28A38F;
+$primary-color-100: #96dcd0;
+$primary-color-300: #6ccebd;
+$primary-color-500: #2db8a1;
+$primary-color-700: #28a38f;
 $primary-color-900: #208171;
 
-$secondary-color-100: #F4F5F5;
+$secondary-color-50: #e9eaea;
+$secondary-color-100: #f4f5f5;
 $secondary-color-500: #949796;
 $secondary-color-550: color-adjust($secondary-color-500, -5%);
-$secondary-color-700: #484E4C;
-$secondary-color-900: #282F2D;
+$secondary-color-600: #737877;
+$secondary-color-700: #484e4c;
+$secondary-color-900: #282f2d;
 
-$blue-color-500: #0A66C2;
+$blue-color-500: #0a66c2;
 $blue-color-600: #0865c2;
 $black-color: #000;
-$white-color: #FFF;
+$white-color: #fff;
 
-$body-bg: #f6F7F7;
+$body-bg: #f6f7f7;
 
 /* Shadows */
-$shadow-card: 0px 1px 7px 0px #282F2D12;
-$shadow-header: 0px 7px 7px 0px #6D6D6D0A;
+$shadow-card: 0px 1px 7px 0px #282f2d12;
+$shadow-header: 0px 7px 7px 0px #6d6d6d0a;
 
 /* Spacing */
 $spacing-unit: 8px;
