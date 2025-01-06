@@ -1,0 +1,27 @@
+@use '../base' as *;
+
+@mixin shimmer($type: '', $width: '', $height: '', $rounded: '') {
+    background-color: fade-out($secondary-color-100, 0.5);
+
+    @if $type == 'text' {
+        height: 0.75lh;
+    }
+
+    @if $type == 'image' {
+        height: $width;
+    }
+
+    @if $height {
+        height: $height;
+    }
+
+    @if $width {
+        width: $width;
+    }
+
+    @if $rounded == 'full' {
+        border-radius: 5em;
+    } @else if $rounded {
+        border-radius: $rounded;
+    }
+}

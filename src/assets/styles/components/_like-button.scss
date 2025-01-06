@@ -1,0 +1,18 @@
+@use '../base' as *;
+@use '../mixins' as *;
+
+.like-button {
+    all: unset;
+    display: flex;
+    align-content: center;
+    gap: $spacing-unit;
+    cursor: pointer;
+
+    &__icon {
+        @include brand-gradient;
+        padding: 4px;
+        align-content: center;
+        display: inline-flex;
+        border-radius: 2em;
+    }
+}
