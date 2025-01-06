@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import type { InfiniteResponse, Post } from "../lib/types";
+import type { /* InfiniteResponse,*/Post } from "../lib/types";
 
-const FEED_ENDPOINT_URL = `${import.meta.env.VITE_BACKEND_URL}`;
+// const FEED_ENDPOINT_URL = `${import.meta.env.VITE_BACKEND_URL}`;
 
 const useInfiniteFeed = () => {
 	const firstRender = useRef(true);
