@@ -5,7 +5,7 @@ import DUMMY_DATA from "./data.json";
 let simulatedBackend = location.host !== "localhost:3000";
 
 export async function getPosts(skip = 0, maxPerPage = 6) {
-	if (!simulatedBackend) {
+	if (simulatedBackend) {
 		const result = {
 			hasMore: DUMMY_DATA.length > skip + maxPerPage,
 			data: DUMMY_DATA.slice(skip, skip + maxPerPage),
@@ -24,7 +24,7 @@ export async function getPosts(skip = 0, maxPerPage = 6) {
 }
 
 export async function sendImpression(id: string) {
-	if (!simulatedBackend) {
+	if (simulatedBackend) {
 		console.log("Sent an impression", id);
 		return;
 	}
