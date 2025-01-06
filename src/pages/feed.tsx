@@ -5,7 +5,7 @@ import { useOnVisible } from "../hooks/useOnVisible";
 export function FeedPage() {
 	const { posts, loading, fetchMore, onVisible, toggleLike } =
 		useInfiniteFeed();
-	const loadMoreRef = useOnVisible(fetchMore);
+	const loadMoreRef = useOnVisible(fetchMore, { rootMargin: '200px' });
 
 	return (
 		<div className="feed">
