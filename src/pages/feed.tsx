@@ -3,7 +3,7 @@ import useInfiniteFeed from "../hooks/useInfiniteFeed";
 import { Virtuoso } from "react-virtuoso";
 
 export function FeedPage() {
-	const { posts, loading, fetchMore, handleRangeChange, toggleLike } =
+	const { posts, loading, fetchMore, onVisible, toggleLike } =
 		useInfiniteFeed();
 
 	return (
@@ -12,9 +12,12 @@ export function FeedPage() {
 				data={posts}
 				endReached={fetchMore}
 				itemContent={(index, post) => (
-					<Post post={post} toggleLike={() => toggleLike(index)} />
+					<Post
+						post={post}
+						toggleLike={() => toggleLike(index)}
+						onVisible={() => onVisible(index)}
+					/>
 				)}
-				rangeChanged={handleRangeChange}
 				components={{
 					Footer: () => (
 						<>

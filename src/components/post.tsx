@@ -5,14 +5,21 @@ import LikeIcon from "../assets/icons/actions/like-outline.svg?react";
 import CommentIcon from "../assets/icons/actions/comment-outline.svg?react";
 import dayjs from "dayjs";
 import { cn } from "../lib/cn";
+import { useOnVisible } from "../hooks/useOnVisible";
 
-type Props = { post: PostType | null; toggleLike?: () => Promise<void> };
+type Props = {
+	post: PostType | null;
+	toggleLike?: () => Promise<void>;
+	onVisible?: () => void;
+};
 
-export function Post({ post, toggleLike }: Props) {
+export function Post({ post, toggleLike, onVisible }: Props) {
+	const ref = useOnVisible(onVisible, { threshold: 0.5 });
+
 	if (post) {
 		const hasInteractions = [post.likes, post.comments].filter(Boolean);
 		return (
-			<article className="post" key={post.id}>
+			<article ref={ref} className="post" key={post.id}>
 				<header className="post__header">
 					<span className="post__header_avatar">
 						<Avatar src={post.avatar} size={40} />

@@ -45,25 +45,20 @@ const useInfiniteFeed = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	async function handleRangeChange({
-		startIndex,
-		endIndex,
-	}: { startIndex: number; endIndex: number }) {
-		const range = Array.from(
-			{ length: endIndex - startIndex },
-			(_, i) => startIndex + i,
-		);
-		for (const index of range) {
+	const onVisible = useCallback(
+		async (index: number) => {
 			const post = posts[index];
-			if (impressionSet.current.has(post.id)) continue;
+			if (impressionSet.current.has(post.id)) return;
+			impressionSet.current.add(post.id);
 			try {
-				impressionSet.current.add(post.id);
+				console.log("Impression on post", post.id);
 				// await fetch(`${FEED_ENDPOINT_URL}?itemId=${post.id}`);
 			} catch {
 				impressionSet.current.delete(post.id);
 			}
-		}
-	}
+		},
+		[posts],
+	);
 
 	const toggleLike = useCallback(async (index: number) => {
 		let originalPost: Post;
@@ -96,7 +91,7 @@ const useInfiniteFeed = () => {
 		hasMore,
 		loading,
 		fetchMore: fetchPosts,
-		handleRangeChange,
+		onVisible,
 		toggleLike,
 	};
 };
