@@ -61,7 +61,8 @@
         gap: $spacing-unit;
 
         img {
-            max-height: 75vh;
+            max-height: 87.5vh;
+            object-position: center;
             object-fit: cover;
             margin: auto;
             height: 100%;

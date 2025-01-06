@@ -19,9 +19,16 @@ export function FeedPage() {
 					/>
 				)}
 				components={{
-					Footer: () => loading && <Post post={null} /> ,
+					Footer: () => (
+						<>
+							{loading && <Post post={null} />}
+							<div className="post-spacer-y" />
+						</>
+					),
 					EmptyPlaceholder: () => loading && <Post post={null} />,
+					Item: (props) => <div {...props} className="post-spacer-y" />,
 				}}
+				increaseViewportBy={{ top: 800, bottom: 800 }}
 				useWindowScroll
 			/>
 		</div>
