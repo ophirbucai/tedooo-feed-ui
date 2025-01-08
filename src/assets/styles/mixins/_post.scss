@@ -1,9 +1,11 @@
 @use '../base' as *;
 
-@mixin post($padding: 24px, $margin-bottom: 24px, $bg-color: #fff) {
+@mixin post($padding: 24px, $margin-top: 24px, $bg-color: #fff) {
     background-color: $bg-color;
     border-radius: 4px;
     font-size: 0.875rem;
+    margin-top: $margin-top;
+    box-shadow: $shadow-card;
 
     &__header,
     &__interactions {
