@@ -59,20 +59,26 @@
     }
 
     &__images {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        display: flex;
+        justify-content: center;
         gap: $spacing-unit;
-
+        
         img {
-            max-height: 66.67lvh;
+            max-height: 75lvh;
             overflow: hidden;
-            object-position: center 33.34%;
-            object-fit: cover;
-            width: 100%;
+            object-position: center 25%;
+            object-fit: scale-down;
             height: 100%;
         }
-        @media screen and (max-width: map.get($breakpoints, lg)) {
-            grid-template-columns: 1fr;
+        
+        @media screen and (max-width: map.get($breakpoints, md)) {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+            
+            img {
+                object-fit: cover;
+                width: 100%;
+            }
         }
     }
 
