@@ -1,9 +1,14 @@
+@use 'sass:map';
+@use 'sass:color';
 @use '../base' as *;
 @use '../mixins' as *;
 
 .feed {
     @include container;
-    height: calc(100vh - 58px);
+
+    @media screen and (max-width: map.get($breakpoints, lg)) {
+        @include container(0);
+    }
 
 
     @media screen and (max-width: map-get($breakpoints, lg)) {
@@ -12,8 +17,6 @@
 
     .post {
         @include post;
-        box-shadow: $shadow-card;
-        margin-top: 24px;
     }
 
     .post.skeleton {
