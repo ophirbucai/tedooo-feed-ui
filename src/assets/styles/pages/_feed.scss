@@ -6,7 +6,7 @@
 .feed {
     @include container;
 
-    @media screen and (max-width: map-get($breakpoints, lg)) {
+    @media screen and (max-width: map.get($breakpoints, lg)) {
         @include container(0);
     }
 
